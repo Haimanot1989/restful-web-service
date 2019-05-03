@@ -1,0 +1,53 @@
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+
+
+.idea/
+atlassian-ide-plugin.xml
+*target/
+overlays/
+logs/
+*.*~
+*.log
+logs
+.svn
+.DS_Store
+.ensime*
+.lib/
+*myWebdriver.properties
+grunt_temp
+node_modules
+node
+src/main/resources/announcement/yammer-announcement.vm
+src/main/webapp/static/dist/
+src/main/resources/rebel.xml
+build-assets/
+coverage/
+package-lock.json
