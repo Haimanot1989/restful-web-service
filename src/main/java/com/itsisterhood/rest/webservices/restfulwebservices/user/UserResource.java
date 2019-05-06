@@ -25,11 +25,12 @@ public class UserResource {
     }
 
     @GetMapping("/users/{id}")
-    public Optional<User> retriveUser(@PathVariable int id){
+    public Optional<User> retrieveUser(@PathVariable int id){
         Optional<User> user = service.findOne(id);
         if(!user.isPresent())
             throw new UserNotFoundException("id-" + id);
         return user;
+
     }
 
     @PostMapping("/users")
@@ -43,5 +44,12 @@ public class UserResource {
                 .toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id){
+        Optional<User> user = service.deleteById(id);
+        if(!user.isPresent())
+            throw new UserNotFoundException("id-" + id);
     }
 }

@@ -16,8 +16,8 @@ public class UserDaoService {
 
     static {
         users.add(new User(1, "Adam", LocalDate.now()));
-        users.add(new User(1, "Eve", LocalDate.now()));
-        users.add(new User(1, "Jack", LocalDate.now()));
+        users.add(new User(2, "Eve", LocalDate.now()));
+        users.add(new User(3, "Jack", LocalDate.now()));
     }
 
     public List<User> findAll(){
@@ -34,5 +34,15 @@ public class UserDaoService {
 
     public Optional<User> findOne(int id){
         return users.stream().filter(u -> u.getId() == id).findFirst();
+    }
+    public Optional<User> deleteById(int id) {
+        Optional<User> user = users.stream()
+                .filter(u -> u.getId() == id)
+                .findFirst();
+
+        user.ifPresent(users::remove);
+
+
+        return user;
     }
 }
