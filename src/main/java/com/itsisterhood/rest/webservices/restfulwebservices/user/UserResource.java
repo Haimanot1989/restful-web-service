@@ -1,6 +1,10 @@
 package com.itsisterhood.rest.webservices.restfulwebservices.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -26,12 +30,17 @@ public class UserResource {
     }
 
     @GetMapping("/users/{id}")
-    public Optional<User> retrieveUser(@PathVariable int id){
+    public Resource<User> retrieveUser(@PathVariable int id){
         Optional<User> user = service.findOne(id);
         if(!user.isPresent())
             throw new UserNotFoundException("id-" + id);
-        return user;
 
+        Resource<User> resource = new Resource<User>(user.get());
+
+        ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+        resource.add(linkTo.withRel("all-users"));
+
+        return resource;
     }
 
     @PostMapping("/users")
