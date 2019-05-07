@@ -61,8 +61,6 @@ public class UserJPAResource {
 
     @DeleteMapping("/jpa/users/{id}")
     public void deleteUser(@PathVariable int id){
-        Optional<User> user = service.deleteById(id);
-        if(!user.isPresent())
-            throw new UserNotFoundException("id-" + id);
+        userRepository.deleteById(id);
     }
 }
