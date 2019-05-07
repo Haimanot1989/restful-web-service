@@ -1,8 +1,15 @@
 package com.itsisterhood.rest.webservices.restfulwebservices.versioning;
 /*
 * More resources on versioning
-* https://www.mnot.net/blog/2011/10/25/web_api_versioning_smackdown
-* http://urthen.github.io/2013/05/09/ways-to-version-your-api/
+*   https://www.mnot.net/blog/2011/10/25/web_api_versioning_smackdown
+*   http://urthen.github.io/2013/05/09/ways-to-version-your-api/
+* Securing Resource
+*   - Basic Authentication
+*       - send user id and password as part of the request
+*   - digest authentication
+*       - create a password digest and send this digest across - the actual password is not sent to the server
+*   - Oath || Oath2
+*
 * */
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
