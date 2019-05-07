@@ -1,3 +1,4 @@
+/*
 package com.itsisterhood.rest.webservices.restfulwebservices;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .password("{noop}password")
                 .roles("USER");
     }
-}
+}*/
